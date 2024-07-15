@@ -4,9 +4,9 @@ import { act } from "react";
 import List from "./List";
 import { todoData } from "../mocking/todo-data";
 
-describe("List", () => {
+describe("리스트 관련 테스트 모음", () => {
   // TEST1: 렌더링 확인 - List 컴포넌트가 주어진 todoData를 기반으로 정확히 렌더링되는지 확인한다.
-  it("renders correctly based on todoData", () => {
+  it("모킹 데이터가 모두 올바르게 렌더링되었는지", () => {
     //Jest의 jest.fn()을 사용하여 모의 함수를 생성.
     //이 함수는 실제 onChange 콜백의 역할을 대신하며, 테스트 중에 호출 여부와 인자들을 추적할 수 있음.
     const mockOnChange = jest.fn();
@@ -23,7 +23,7 @@ describe("List", () => {
   });
 
   // TEST2: 체크박스 상태 변경 확인 - 각 할 일 항목의 체크박스를 클릭할 때마다 onChange 핸들러가 호출되고, 호출 시 올바른 인자를 전달하는지 검증한다.
-  it("calls onChange handler when checkbox is clicked", () => {
+  it("체크박스를 클릭할 때마다 이벤트 핸들러가 호툴되었는지", () => {
     const mockOnChange = jest.fn();
 
     act(() => {
