@@ -26,10 +26,12 @@ describe("리스트 관련 테스트 모음", () => {
   it("체크박스를 클릭할 때마다 이벤트 핸들러가 호툴되었는지", () => {
     const mockOnChange = jest.fn();
 
+    //**** Given: 사용자와 화면이 준비되어 있고, 리스트 컴포넌트에  ****//
     act(() => {
       render(<List tasks={todoData} onChange={mockOnChange} />);
     });
 
+    //**** When: 사용자가 각 체크박스를 클릭함 ****//
     // 각 체크박스 클릭 이벤트 발생
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((checkbox, index) => {
@@ -37,6 +39,7 @@ describe("리스트 관련 테스트 모음", () => {
         fireEvent.click(checkbox);
       });
 
+      //**** Then: 체크박스 상태가 바뀌었는지 검증함 ****//
       // onChange 핸들러 호출 검증
       expect(mockOnChange).toHaveBeenNthCalledWith(
         index + 1, // 호출 순서
